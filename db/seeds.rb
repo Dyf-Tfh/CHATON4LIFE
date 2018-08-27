@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 1.times do
-  User.create!(email: "n.zhao@hotmail.fr",encrypted_password: "loliloli")
-
+  User.create!(email: "n.zhao@hotmail.fr", password: "loliloli")
 end
-Cart.create!(user_id: "1",total_price: "$100")
+Cart.create!(user_id: "1", total_price: "$100")
