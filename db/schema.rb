@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_27_151013) do
 
 <<<<<<< HEAD
   create_table "orders", force: :cascade do |t|
-    t.float "total_price"
+    t.decimal "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 =======
