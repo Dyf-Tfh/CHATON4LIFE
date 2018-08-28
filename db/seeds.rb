@@ -6,8 +6,8 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do
-  Item.create!(title: Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, price: rand(10..100), image_url: Faker::Internet.url)
+19.times do |i|
+  Item.create!(title: Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, price: rand(1..10), image_url: 'cats/small/cat_' + sprintf('%04d' , i+1) + '.png')
 end
 
 2.times do
@@ -15,6 +15,6 @@ end
   Cart.create!(user_id: aba.id, total_price: "$100")
 end
 
-50.times do
+50.times do |i|
   CartItem.create!(item_id: Item.order("RANDOM()").first.id, cart_id: Cart.order("RANDOM()").first.id)
 end
