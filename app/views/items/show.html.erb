@@ -1,74 +1,21 @@
-<section class="items-show">
+<p id="notice"><%= notice %></p>
 
-  <header class="page-header">
-    <h1><%= link_to @item.category.name, @item.category %> &raquo; <%= @item.name %></h1>
-  </header>
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
 
-  <article class="product-detail">
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
 
-    <div class="row">
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
 
-      <div class="col-sm-4">
-        <%= image_tag @item.image.url, class: 'main-img' %>
-      </div>
-
-      <div class="col-sm-8">
-        <dl class="dl-horizontal">
-          <dt>Name</dt>
-          <dd><%= @item.name %></dd>
-          <dt>Description</dt>
-          <dd><%= @item.description %></dd>
-          <dt>Quantity</dt>
-          <dd><%= @item.quantity %></dd>
-          <dt>Price</dt>
-          <dd>$ <%= @item.price %></dd>
-        </dl>
-      </div>
-      <div class="col-sm-8">
-        <br>
-        <dl class="dl-horizontal">
-          <% if current_user %>
-            <%= form_for(Review.new, url: product_reviews_path(@item, @review)) do |f| %>
-            <dt>Add a Review</dt>
-            <dd><%= f.text_area :description, class: "form-control" %></dd>
-            <br>
-            <dt>Rating</dt>
-            <dd>
-              <%= f.select :rating,
-                  options_for_select(
-                  [['Excellent', 5],
-                  ['Good', 4],
-                  ['Average', 3],
-                  ['Could be improved', 2],
-                  ['Poor', 1]]),
-                  class: "form-control" %>
-            </dd>
-            <br>
-            <dd><%= f.submit "Submit Review", class: "btn btn-primary" %></dd>
-            <% end %>
-          <% end %>
-          <br>
-          <% @item.reviews.each do |i| %>
-          <dt><%= show_stars i.rating %></dt>
-          <dd>
-            <%= i.description %>
-            <br>
-            Review submitted <%= i.created_at.strftime("%d %B %Y") %>
-            <br>
-            <% if i.user == current_user %>
-              <%= link_to "DELETE REVIEW",
-                  product_review_path(@item, i),
-                  :method => :delete,
-                  class: "btn btn-danger"
-                  %>
-            <% end %>
-          </dd>
-          <br>
-          <% end %>
-        </dl>
-      </div>
-    </div>
-
-  </article>
-
-</section>
+<p>
+  <strong>Image url:</strong>
+  <%= @item.image_url %>
+</p>

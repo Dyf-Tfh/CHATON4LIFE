@@ -7,7 +7,7 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 10.times do
-  Item.create!(title: Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, price: rand(0..10), image_url: Faker::Internet.url)
+  Item.create!(title: Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, price: rand(1..10), image_url: Faker::Internet.url)
 end
 
 2.times do
