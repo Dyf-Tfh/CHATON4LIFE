@@ -1,6 +1,8 @@
 <% a = 0 %>
 <ol>
-<% @cart.items.each do |item| %>
+<%# Gros cheateage on affiche que les items uniques du panier %>
+<%# En plus on supprime pas les duplicates de la db, juste on ne les affiche pas haha %>
+<% @cart.items.uniq.each do |item| %>
 <li>
   <%= item.title %><br>
   <%= item.description %><br>
