@@ -15,6 +15,6 @@ end
   Cart.create!(user_id: aba.id, total_price: "$100")
 end
 
-50.times do |i|
+50.times do
   CartItem.create!(item_id: Item.order("RANDOM()").first.id, cart_id: Cart.order("RANDOM()").first.id)
 end
