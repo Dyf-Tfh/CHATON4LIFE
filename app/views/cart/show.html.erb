@@ -6,6 +6,7 @@
   <%= item.description %><br>
   $<%= item.price %>
   <% a += item.price %>
+  <%= link_to  "Supprimer l'article", mon_panier_delete_path(id: @cart.id,item: item.id), method: :delete %>
 </li>
 <% end %>
 </ol>
