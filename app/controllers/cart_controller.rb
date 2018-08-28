@@ -1,6 +1,6 @@
 class CartController < ApplicationController
   def show
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find(current_user.id)
   end
 
   def delete
