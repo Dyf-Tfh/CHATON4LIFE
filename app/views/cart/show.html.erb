@@ -1,5 +1,3 @@
-<% a = 0 %>
-<ol>
 <%# Gros cheateage on affiche que les items uniques du panier %>
 <%# En plus on supprime pas les duplicates de la db, juste on ne les affiche pas haha %>
 <% @cart.items.uniq.each do |item| %>
@@ -10,6 +8,9 @@
   <% a += item.price %>
   <%= link_to  "Supprimer l'article", mon_panier_delete_path(id: @cart.id,item: item.id), method: :delete %>
 </li>
+
 <% end %>
-</ol>
-<p> Prix total: $<%= a %></p>
+
+<%= form_for @order, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.submit "Passer commande", class: 'btn btn-warning' %>
+<% end %>
