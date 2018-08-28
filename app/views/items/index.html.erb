@@ -1,3 +1,4 @@
 <% @items.all.each do |i| %>
+<% link_to "Item", controller: "items", action: "show", id: @item %>
 <%= image_tag(i.image_url) %>
 <% end %>
