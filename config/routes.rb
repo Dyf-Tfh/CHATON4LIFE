@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order/index'
+  get 'order/show'
+  get 'order/new'
+  get 'order/create'
   root 'items#index'
   get 'items/index'
   get 'items/show'

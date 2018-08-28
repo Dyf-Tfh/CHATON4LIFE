@@ -4,5 +4,6 @@ class Item < ApplicationRecord
   has_many :users, through: :carts
   has_many :cart_items
   has_many :carts, through: :cart_items
-  has_and_belongs_to_many :orders
+  has_many :item_orders
+  has_many :orders, through: :item_orders
 end
