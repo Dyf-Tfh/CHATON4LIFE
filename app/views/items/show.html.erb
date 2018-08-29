@@ -1,21 +1,15 @@
-<p id="notice"><%= notice %></p>
+<br><br>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+<h1>SHOW DETAIL about one Item</h1>
+<h2> <%= @item.description %> </h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+<div class="jumbotron">
+	<%= @item.title %> -> <%= @item.price %> <br>
 
-<p>
-  <strong>Image url:</strong>
-  <%= image_tag  @item.image_url %>
-</p>
+	<% if user_signed_in? %>
+		<a class="btn btn-success" href="/items/add/<%= @item.id %>">ADD TO BASKET</a>
+	<% else %>
+		<a class="btn btn-success" href="<%= new_user_registration_path %>">GO REGISTER</a>
+	<% end %>
+</div>
