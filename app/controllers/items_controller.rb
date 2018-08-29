@@ -11,8 +11,13 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def product_params
-    params.require(:product).permit(:title, :description, :price, :image_url)
+  def item_params
+    params.require(:item).permit(:title, :description, :price, :image_url)
   end
-  
+
+  def add
+  	@item = Item.find(params[:id])
+    CartItem.create!(cart_id: current_user.id, item_id: @item.id)
+  	redirect_to mon_panier_path
+  end
 end
