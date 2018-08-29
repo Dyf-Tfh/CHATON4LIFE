@@ -1,17 +1,33 @@
-<% a = 0 %>
-<%# Gros cheateage on affiche que les items uniques du panier %>
-<%# En plus on supprime pas les duplicates de la db, juste on ne les affiche pas haha %>
-<% @cart.items.uniq.each do |item| %>
-<li>
-  <%= item.title %><br>
-  <%= item.description %><br>
-  $<%= item.price %>
-  <% a += item.price %>
-  <%= link_to  "Supprimer l'article", mon_panier_delete_path(id: @cart.id,item: item.id), method: :delete %>
-</li>
+<div class="wrapper">
+  <%= render 'shared/cartheader' %>
+  <%= render 'shared/cartmain' %>
+</div>
 
-<% end %>
-Total : $<%= a %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <%#= form_for @order, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
   <%# if flash[:error].present? %>

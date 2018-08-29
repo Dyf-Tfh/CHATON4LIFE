@@ -8,7 +8,7 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 19.times do |i|
-  Item.create!(title: Faker::Hacker.noun, description: Faker::Hacker.say_something_smart, price: rand(1..10), image_url: 'cats/small/cat_' + sprintf('%04d' , i+1) + '.png')
+  Item.create!(title: Faker::Cat.name, description: Faker::FamilyGuy.quote, price: rand(1..10), image_url: 'cats/small/cat_' + sprintf('%04d' , i+1) + '.png')
 end
 
 2.times do
