@@ -1,3 +1,4 @@
+<% a = 0 %>
 <%# Gros cheateage on affiche que les items uniques du panier %>
 <%# En plus on supprime pas les duplicates de la db, juste on ne les affiche pas haha %>
 <% @cart.items.uniq.each do |item| %>
@@ -10,7 +11,17 @@
 </li>
 
 <% end %>
-
+<!--
 <%= form_for @order, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.submit "Passer commande", class: 'btn btn-warning' %>
-<% end %>
+  <% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Paiement"
+          data-amount="<%= @order.total_price *100 %>"
+          data-locale="auto"></script>
+<% end %> -->

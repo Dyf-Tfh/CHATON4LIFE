@@ -1,10 +1,10 @@
 class CartController < ApplicationController
   def show
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find(current_user.id)
   end
 
   def delete
-    Cart.find(params[:id]).items.find(params[:item]).delete
+    CartItem.find(params[:id]).items.find(params[:item]).delete
     redirect_to mon_panier_path
   end
 end

@@ -1,3 +1,7 @@
-<% @items.all.each do |i| %>
-<%= link_to  image_tag(i.image_url), item_path(i.id) %>
-<% end %>
+<!-- Wrapper-->
+<div class="wrapper">
+  <% @items.all.each do |i| %>
+  <%= link_to  image_tag(i.image_url), item_path(i.id) %>
+  <% end %>
+</div>
+<!-- Wrapper end-->
