@@ -20,5 +20,4 @@ class ItemsController < ApplicationController
     CartItem.create!(cart_id: current_user.id, item_id: @item.id)
   	redirect_to mon_panier_path
   end
-
 end

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get 'items/index'
   get 'items/:id/show', to: 'items#show', as: 'item'
   devise_for :users
-  get 'users/:id/mon_panier', to: 'cart#show', as: 'mon_panier'
-  delete 'users/:id/mon_panier/:item', to: 'cart#delete', as: 'mon_panier_delete'
+  get 'mon_panier', to: 'cart#show', as: 'mon_panier'
+  delete 'mon_panier/:item', to: 'cart#delete', as: 'mon_panier_delete'
   get 'user/profile', to: 'user#show', as: 'profile'
 
   get 'items/add/:id', to: 'items#add'
