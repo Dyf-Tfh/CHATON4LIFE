@@ -18,10 +18,12 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
 
-  # @email = MailJetController.new.perform(customer[:email])
+    AdminMailer.admin_email(stripe_params["stripeEmail"]).deliver_now!
+    CustomerMailer.customer_email(stripe_params["stripeEmail"]).deliver_now!
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
 end
