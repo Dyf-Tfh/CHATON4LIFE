@@ -10,5 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_tree .
+ *= require_self
+ *= require bootstrap/css/bootstrap.min
+ *= require boomerang/css/template
+ *= require boomerang/css/plugins.min
+ *= require boomerang/css/magnific-popup
+ *= require boomerang/css/prism
+ *= require boomerang/css/simple-line-icons
+ *= require boomerang/css/template.min
+ *= require boomerang/css/vertical
  */
- @import "bootstrap";

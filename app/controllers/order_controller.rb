@@ -13,10 +13,11 @@ class OrderController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.save
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
-    redirect_to root_path
+    if @order.save
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+    else
+      render new
   end
 
   private
