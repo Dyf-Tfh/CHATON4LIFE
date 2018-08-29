@@ -6,7 +6,12 @@
             <div class="col-md-3">
                 <div class="shop-grid-item">
                     <div class="shop-item-thumb"><%= link_to  image_tag(i.image_url), item_path(i.id) %>
-                        <div class="shop-item-hidden"><a class="btn btn-new-white" href="#">Add to cart</a></div>
+
+                      <% if user_signed_in? %>
+                        <div class="shop-item-hidden"><a class="btn btn-new-white" href="/items/add/<%= i.id %>">Add to cart</a></div>
+                        <% else %>
+                        <div class="shop-item-hidden"><a class="btn btn-new-white" href="<%= new_user_registration_path %>">GO REGISTER</a></div>
+                        <% end %>
                     </div>
                     <div class="shop-item-captions">
                         <h6 class="shop-item-title"><%= i.title %></h6><span class="shop-item-price"><%= i.price %></span>

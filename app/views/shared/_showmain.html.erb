@@ -1,0 +1,58 @@
+
+            <!-- Product-->
+            <section class="module">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="shop-single-item-photos"><a class="shop-single-item-popup" href="assets/images/shop/5.jpg"><%= link_to  image_tag(@item.image_url), item_path(@item.id) %></a>
+                                <ul class="shop-single-item-gallery">
+                                    <li><a class="shop-single-item-popup" href="assets/images/shop/1.jpg"><img src="assets/images/shop/1.jpg" alt=""></a></li>
+                                    <li><a class="shop-single-item-popup" href="assets/images/shop/2.jpg"><img src="assets/images/shop/2.jpg" alt=""></a></li>
+                                    <li><a class="shop-single-item-popup" href="assets/images/shop/3.jpg"><img src="assets/images/shop/3.jpg" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="shop-single-item">
+                                <h2 class="shop-single-item-title"><%= @item.title.capitalize %></h2>
+                                <div class="shop-single-item-rating"><span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span><a href="#">(2 customer reviews)</a></div>
+                                <h2 class="shop-single-item-price">$<%= @item.price %></h2>
+                                <div class="shop-single-item-description">
+                                    <p><%= @item.description %></p>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input class="form-control" type="number" value="1">
+                                    </div>
+                                </div>
+
+
+                                <% if user_signed_in? %>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6"><a class="btn btn-block btn-dark" href="/items/add/<%= @item.id %>">Add to cart</a></div>
+                                </div>
+                                <% else %>
+                                  <a class="btn btn-success" href="<%= new_user_registration_path %>">GO REGISTER</a>
+                                <% end %>
+
+
+                                <hr class="m-t-30 m-b-30">
+                                <div class="info-list">
+                                    <li><span class="info-list-title">Category:</span><span><a href="#">Interior</a></span></li>
+                                    <li><span class="info-list-title">Tags:</span><span><a href="#">Chair</a>, <a href="#">Interior</a></span></li>
+                                </div>
+                                <hr class="m-t-30 m-b-30">
+                                <div class="info-list">
+                                    <li><span class="info-list-title">Share:</span><span>
+                                            <ul class="social-icons">
+                                                <li><a href="#"><i class="ti-twitter"></i></a></li>
+                                                <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                                <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                                            </ul></span></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Product end-->
