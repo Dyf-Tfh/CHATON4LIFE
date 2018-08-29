@@ -12,17 +12,3 @@
 
 <% end %>
 Total : $<%= a %>
-<!--
-<%= form_for @order, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <% if flash[:error].present? %>
-    <div id="error_explanation">
-      <p><%= flash[:error] %></p>
-    </div>
-  <% end %>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Paiement"
-          data-amount="<%= @order.total_price *100 %>"
-          data-locale="auto"></script>
-<% end %> -->
