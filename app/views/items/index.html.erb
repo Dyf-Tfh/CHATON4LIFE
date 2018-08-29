@@ -1,7 +1,4 @@
-<!-- Wrapper-->
 <div class="wrapper">
-  <% @items.all.each do |i| %>
-  <%= link_to  image_tag(i.small_image), item_path(i.id) %>
-  <% end %>
+  <%= render 'shared/hero' %>
+  <%= render 'shared/shopgrid' %>
 </div>
-<!-- Wrapper end-->
