@@ -9,8 +9,6 @@
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
       <% if user_signed_in? %>
-
-
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
@@ -23,19 +21,12 @@
         </div>
       </li>
       <% else %>
-      <div class="navbar-right">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img class="avatar" height="75px" width="75px" alt="myprofilepic" <%= image_tag("kitty.jpg") %></a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li class="dropdown-item nav-item">
+        <li class="nav-item">
           <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
         </li>
-        <li class="dropdown-item nav-item">
+        <li class="nav-item">
           <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
         </li>
-        </div>
-     </div>
       <% end %>
     </ul>
   </div>
