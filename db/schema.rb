@@ -32,11 +32,6 @@ ActiveRecord::Schema.define(version: 2018_08_28_123048) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "carts_items", id: false, force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "cart_id", null: false
-  end
-
   create_table "item_orders", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "order_id"
