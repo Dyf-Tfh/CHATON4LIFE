@@ -18,8 +18,8 @@ class ChargesController < ApplicationController
       :currency    => 'usd'
     )
 
-    AdminMailer.admin_email(stripe_params["stripeEmail"]).deliver_now!
-    CustomerMailer.customer_email(stripe_params["stripeEmail"]).deliver_now!
+    AdminMailer.new_order_email(stripe_params["stripeEmail"]).deliver_now!
+    CustomerMailer.order_email(stripe_params["stripeEmail"]).deliver_now!
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
