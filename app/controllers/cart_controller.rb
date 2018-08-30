@@ -1,7 +1,8 @@
 class CartController < ApplicationController
   def show
     if current_user.cart.nil?
-      current_user.cart.create
+      Cart.create!(id: current_user.id, user_id: current_user.id)
+    end
     @cart = Cart.find(current_user.id)
   end
 
