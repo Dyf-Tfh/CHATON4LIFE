@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'order/index'
   get 'order/show'
   get 'order/new'
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'items/add/:id', to: 'items#add'
   get 'config/active_storage/route_yolo', to: 'item#config'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items
