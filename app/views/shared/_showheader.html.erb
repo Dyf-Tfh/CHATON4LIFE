@@ -1,3 +1,43 @@
+<!-- Header-->
+        <header class="header">
+            <div class="container-fluid">
+                <!-- Brand-->
+                <div class="inner-header"><%= link_to "CHATON4LIFE", root_url, class: "inner-brand" %></div>
+                <!-- Navigation-->
+                <div class="inner-navigation collapse">
+                    <div class="inner-nav">
+                        <ul>
+
+                          <% if user_signed_in? %>
+                          <li class="menu-item-has-children"><a href="#"><span class="menu-item-span">Account</span></a>
+                            <ul class="sub-menu">
+                              <%= link_to "Cart", mon_panier_path(current_user.id), class: "dropdown-item" %>
+                              <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item" %>
+                              <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
+                              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                            </ul>
+                          </li>
+                          <% else %>
+                            <li class="menu-item-has-children">
+                              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                            </li>
+                            <li class="menu-item-has-children">
+                              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+                            </li>
+                          <% end %>
+                      </ul>
+                  </div>
+                <div class="extra-nav">
+                    <ul>
+                        <li><a class="top-bar-cart" href="shop-cart-1.html"><span class="menu-item-span"><i class="ti-shopping-cart"></i></a></li>
+                        <li class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="menu-item-span"><i class="ti-menu"></i></span></a></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </header>
+        <!-- Header end-->
+
 <!-- Page Header-->
 <section class="module-page-title bg-gray">
     <div class="container">
@@ -12,7 +52,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                    <li class="breadcrumb-item active">Classic Chair</li>
+                    <li class="breadcrumb-item active"><%= @item.title.capitalize %></li>
                 </ol>
             </div>
         </div>
