@@ -45,14 +45,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <input class="form-control" type="text" placeholder="Coupon Code">
-                        </div>
-                        <div class="form-group col-md-4"><a class="btn btn-block-mobile btn-outline-brand" href="#">Apply Coupon</a></div>
-                        <div class="form-group col-md-4 text-right"><a class="btn btn-block-mobile btn-brand" href="#">Update Cart</a></div>
-                    </div>
-                    <hr class="m-t-0">
                 </form>
             </div>
         </div>
@@ -68,7 +60,7 @@
                 </table>
                 <!-- <div class="text-right"><%= link_to "Proceed to checkout", new_charge_path, class: "btn btn-block-mobile btn-black" %></div> -->
                 <div class="text-right">
-                  <%= form_tag charges_path do %>
+                  <%= form_tag carts_path do %>
                       <% if flash[:error].present? %>
                         <div id="error_explanation">
                           <p><%= flash[:error] %></p>
@@ -79,9 +71,13 @@
                       <div class="stripe-button-container">
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                                data-description="A month's subscription"
-                                data-amount="500"
-                                data-locale="auto"></script>
+                                data-description="Panier"
+                                data-name="CHATON4LIFE"
+                                data-label = 'Passer commande'
+                                data-amount="<%= (current_user.cart.items.to_a.sum { |item| item.price }.to_i) *100 %>"
+                                data-email="<%= current_user.email %>"
+                                data-locale="auto">
+                        </script>
                       </div>
                   <% end %>
 
