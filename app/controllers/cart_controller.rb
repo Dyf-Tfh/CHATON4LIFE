@@ -7,11 +7,7 @@ class CartController < ApplicationController
   end
 
   def delete
-<<<<<<< HEAD
     Cart.find(params[:id]).items.find(params[:item]).delete
-=======
-    Cart.find(params[:id]).cart_items.find(item_id: params[:item]).delete
->>>>>>> active_storage
     redirect_to mon_panier_path
   end
 
