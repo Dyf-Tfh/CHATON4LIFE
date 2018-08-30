@@ -1,4 +1,4 @@
-<h1>Boutique e-commerce</h1> 
+<h1>Boutique e-commerce CHATON4LIFE </h1> 
 
 lien heroku: 
 
@@ -23,7 +23,7 @@ lien heroku:
 
 Go sur http://localhost:3000/
 
-<h2>Réalisé par la team:</h2>
+<h2>Réalisée par la team:</h2>
 
 Amélie F, 
 David B, 
