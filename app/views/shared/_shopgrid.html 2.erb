@@ -1,0 +1,45 @@
+<!-- Shop Grid-->
+<section class="module">
+    <div class="container">
+        <div class="row">
+          <% @items.all.each do |i| %>
+            <div class="col-md-3">
+                <div class="shop-grid-item">
+                    <div class="shop-item-thumb"><%= link_to image_tag(i.image_url), item_path(i.id) %>
+                      <% if user_signed_in? %>
+                        <div class="shop-item-hidden"><a class="btn btn-new-white" href="/items/add/<%= i.id %>">Add to cart</a></div>
+                        <% else %>
+                        <div class="shop-item-hidden"><a class="btn btn-new-white" href="<%= new_user_registration_path %>">GO REGISTER</a></div>
+                        <% end %>
+                    </div>
+                    <div class="shop-item-captions">
+                        <h6 class="shop-item-title"><%= i.title %></h6><span class="shop-item-price"><%= i.price %></span>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="space" data-my="40px" style="margin-top: 40px;"></div>
+            </div>
+        </div>
+        <!-- Page Navigation-->
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-left"></span></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-right"></span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Navigation end-->
+    </div>
+</section>
+<!-- Shop Grid-->
