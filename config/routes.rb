@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'order/new'
   get 'order/create'
   root 'items#index'
-  get 'items/index'
   get 'items/:id/show', to: 'items#show', as: 'item'
   devise_for :users
   get 'mon_panier', to: 'cart#show', as: 'mon_panier'
