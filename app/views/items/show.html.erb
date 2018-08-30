@@ -1,41 +1,4 @@
-<<<<<<< HEAD
-=======
-<!-- <<<<<<< HEAD
-<br><br>
 
-<h1>Le Chaton4Life, en détails</h1>
-
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @item.image_url %>
-</p>
-
-
-<div class="jumbotron">
-	<%= @item.title %> -> <%= @item.price %> <br>
-
-	<% if user_signed_in? %>
-		<a class="btn btn-success" href="/items/add/<%= @item.id %>">ADD TO BASKET</a>
-	<% else %>
-		<a class="btn btn-success" href="<%= new_user_registration_path %>">GO REGISTER</a>
-	<% end %> -->
-<!-- ======= -->
->>>>>>> development
 <div class="wrapper">
   <%= render 'shared/whiteheader' %>
 	<%= render 'shared/showheader' %>
