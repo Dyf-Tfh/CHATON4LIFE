@@ -14,6 +14,4 @@ class CartController < ApplicationController
   def quantity
     @b = params[:quantity].to_d
   end
-
-
 end
