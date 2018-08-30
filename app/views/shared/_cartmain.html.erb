@@ -1,0 +1,74 @@
+<!-- Shop cart-->
+<section class="module">
+    <div class="container">
+
+    <% a = 0 %>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="table-responsive">
+                        <table class="table cart-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-thumbnail">Product</th>
+                                    <th class="col-title"></th>
+                                    <th class="col-price">Price</th>
+                                    <th class="col-quantity">Quantity</th>
+                                    <th class="col-subtotal">Total</th>
+                                    <th class="col-remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                              <%# Gros cheateage on affiche que les items uniques du panier %>
+                              <%# En plus on supprime pas les duplicates de la db, juste on ne les affiche pas haha %>
+                              <% @cart.items.uniq.each do |item| %>
+
+                                <tr>
+                                    <td><%= link_to  image_tag(item.image_url), item_path(item.id) %><img class="cart-thumbnail" src="assets/images/shop/1.jpg" alt=""></a></td>
+                                    <td>
+                                        <h6 class="m-b-0"><%= link_to  item.title, item_path(item.id) %></h6>
+                                        <p><small><%= item.description %></small></p>
+                                    </td>
+                                    <td>$<%= item.price %>
+                                    </td>
+                                    <td>
+                                        <input class="form-control" name="quantity" type="number" step="1" min="1" value="1">
+                                    </td>
+                                    <td>$<%#= item.price * @b %>
+                                    </td>
+                                    <td class="cart-remove"><%= link_to "delete", mon_panier_delete_path(id: @cart.id,item: item.id), method: :delete %></td>
+                                </tr>
+                              <% a += item.price %>
+                              <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <input class="form-control" type="text" placeholder="Coupon Code">
+                        </div>
+                        <div class="form-group col-md-4"><a class="btn btn-block-mobile btn-outline-brand" href="#">Apply Coupon</a></div>
+                        <div class="form-group col-md-4 text-right"><a class="btn btn-block-mobile btn-brand" href="#">Update Cart</a></div>
+                    </div>
+                    <hr class="m-t-0">
+                </form>
+            </div>
+        </div>
+        <div class="row m-t-70">
+            <div class="col-md-12">
+                <table class="table cart-table">
+                    <tbody>
+                        <tr>
+                            <td>Total</td>
+                            <td class="text-right">$<%= a %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right"><a class="btn btn-block-mobile btn-black" href="#">Proceed to checkout</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop cart end-->
