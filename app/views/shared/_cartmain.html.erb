@@ -26,19 +26,19 @@
                               <% @cart.items.uniq.each do |item| %>
 
                                 <tr>
-                                    <td><a href="#"><img class="cart-thumbnail" src="assets/images/shop/1.jpg" alt=""></a></td>
+                                    <td><%= link_to  image_tag(item.image_url), item_path(item.id) %><img class="cart-thumbnail" src="assets/images/shop/1.jpg" alt=""></a></td>
                                     <td>
-                                        <h6 class="m-b-0"><a href="#"><%= item.title %></a></h6>
+                                        <h6 class="m-b-0"><%= link_to  item.title, item_path(item.id) %></h6>
                                         <p><small><%= item.description %></small></p>
                                     </td>
                                     <td>$<%= item.price %>
                                     </td>
                                     <td>
-                                        <input class="form-control" type="number" step="1" min="1" value="1">
+                                        <input class="form-control" name="quantity" type="number" step="1" min="1" value="1">
                                     </td>
-                                    <td>$30.00
+                                    <td>$<%#= item.price * @b %>
                                     </td>
-                                    <td class="cart-remove"><%= link_to  "", mon_panier_delete_path(id: @cart.id,item: item.id), method: :delete %><i class="ti-close"></i></a></td>
+                                    <td class="cart-remove"><%= link_to "delete", mon_panier_delete_path(id: @cart.id,item: item.id), method: :delete %></td>
                                 </tr>
                               <% a += item.price %>
                               <% end %>
