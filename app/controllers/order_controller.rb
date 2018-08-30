@@ -18,10 +18,12 @@ class OrderController < ApplicationController
       session[:cart_id] = nil
     else
       render new
+    end
   end
 
   private
-    def order_params
-      params.require(:order).permit(:total_price)
-    end
+
+  def order_params
+    params.require(:order).permit(:total_price)
+  end
 end
