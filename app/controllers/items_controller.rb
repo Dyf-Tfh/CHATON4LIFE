@@ -22,11 +22,11 @@ class ItemsController < ApplicationController
     redirect_to mon_panier_path
   end
 
-  def config
-    # pour lier activestorage en local ne sert que durant la config
-    Item.all.each_with index do |item,i|
-      item.small_image.attach(io: File.open('small/cat_') + format("%04d", i) + '.jpg', filename: 'cat_' + format("%04d", i) + '.jpg')
-      item.small_image.attach(io: File.open('large/cat_') + format("%04d", i) + '.png', filename: 'cat_' + format("%04d", i) + '.png')
-     end
-  end
+  # def config
+  #   # pour lier activestorage en local ne sert que durant la config
+  #   Item.all.each_with_index do |item,i|
+  #     item.small_image.attach(io: File.open('small/cat_') + format("%04d", i) + '.jpg', filename: 'cat_' + format("%04d", i) + '.jpg')
+  #     item.small_image.attach(io: File.open('large/cat_') + format("%04d", i) + '.png', filename: 'cat_' + format("%04d", i) + '.png')
+  #    end
+  # end
 end
