@@ -1,4 +1,8 @@
 RailsAdmin.config do |config|
+  config.authorize_with do
+     redirect_to main_app.root_path unless (!current_user.nil? && current_user.admin == true)
+   end
+
 
   ### Popular gems integration
 
@@ -22,6 +26,11 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
+
+  # METHODE QUI PERMET DE VERIFIER SI UN UTILISATEUR EST ADMIN OU PAS POUR LE DASHBOARD
+  config.authorize_with do
+    redirect_to main_app.root_path unless (!current_user.nil? && current_user.admin == true)
+  end
 
   config.actions do
     dashboard                     # mandatory

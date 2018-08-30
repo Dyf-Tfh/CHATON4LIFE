@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'items/add/:id', to: 'items#add'
   get 'config/active_storage/route_yolo', to: 'item#config'
 
+mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items
   resources :charges
