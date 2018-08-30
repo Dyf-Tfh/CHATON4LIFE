@@ -18,6 +18,7 @@ class OrderController < ApplicationController
       session[:cart_id] = nil
     else
       render new
+    end
   end
 
   private

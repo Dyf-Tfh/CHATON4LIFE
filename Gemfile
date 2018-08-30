@@ -68,3 +68,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'stripe'
 gem 'devise'
 gem 'mailjet'
+gem 'rails_admin', '~> 1.3'
