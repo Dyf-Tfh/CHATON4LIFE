@@ -1,5 +1,5 @@
-<%= form_for(@order, url: create_order_path, html: {id: :continue}) do |f| %>
- <% f.submit "Continuer", style: "display: none;" %>
+<%= form_tag root_path do |f| %>
+ <% submit_tag "Continuer", style: "display: none;" %>
 <% end %>
 
 

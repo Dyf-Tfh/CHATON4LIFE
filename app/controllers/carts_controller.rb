@@ -16,10 +16,22 @@ class CartsController < ApplicationController
   end
 
   def create
+      @user = current_user
       set_cart
       new_charge
     if @charge.save
-      redirect_to new_order_path
+      @order = Order.new(
+      user_id: current_user.id,
+    )
+
+      if @order.save
+        CustomerMailer.order_email(@user.email).deliver_now
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+      else
+        render new
+      end
+      redirect_to root_path
     else
       flash[:error] = "Problème de paiement"
       redirect_to mon_panier_path
@@ -31,7 +43,7 @@ class CartsController < ApplicationController
     token = params.require(:stripeToken)
 
     @charge = Stripe::Charge.create({
-        amount: @total,
+        amount: (current_user.cart.items.to_a.sum { |item| item.price }.to_i) *100,
         currency: 'eur',
         description: "Total",
         source: token,
