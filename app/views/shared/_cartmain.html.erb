@@ -80,45 +80,6 @@
                         </script>
                       </div>
                   <% end %>
-
-<<<<<<< HEAD
-                    <div class="stripe-button-container">                               
-                               <script src="https://checkout.stripe.com/checkout.js"
-                               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"></script>
-
-                               <button id="customButton">Purchase</button>
-
-                               <script>
-                               var handler = StripeCheckout.configure({
-                                 key: 'pk_test_TYooMQauvdEDq54NiTphI7jx',
-                                 image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-                                 locale: 'auto',
-                                 token: function(token) {
-                                   // You can access the token ID with `token.id`.
-                                   // Get the token ID to your server-side code for use.
-                                 }
-                               });
-
-                               document.getElementById('customButton').addEventListener('click', function(e) {
-                                 // Open Checkout with further options:
-                                 handler.open({
-                                   name: 'Stripe.com',
-                                   description: '2 widgets',
-                                   zipCode: true,
-                                   amount: 2000
-                                 });
-                                 e.preventDefault();
-                               });
-
-                               // Close Checkout on page navigation:
-                               window.addEventListener('popstate', function() {
-                                 handler.close();
-                               });
-                               </script>
-                    </div>
-                <% end %>
-=======
->>>>>>> f333bca3dd241dde0e340ce8236b365a1afb4805
                 </div>
             </div>
         </div>
