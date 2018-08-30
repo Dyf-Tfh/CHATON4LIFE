@@ -1,24 +1,32 @@
-# README
+<h1>Boutique e-commerce</h1> 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+lien heroku: 
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+<h2>Utilisation en local</h2>
 
-* Configuration
 
-* Database creation
+> <p>git clone https://github.com/Dyf-Tfh/CHATON4LIFE.git
 
-* Database initialization
+> cd CHATON4LIFE
 
-* How to run the test suite
+> bundle install 
 
-* Services (job queues, cache servers, search engines, etc.)
+> rails db:create
 
-* Deployment instructions
+> rails db:migrate
 
-* ...
+> rails db:seed
+
+> rails s  
+
+Go sur http://localhost:3000/
+
+<h2>Réalisé par la team:</h2>
+
+Amélie F, 
+David B, 
+Nicolas Z, 
+Pierre Tâm-Anh L, 
+Soraya FC
