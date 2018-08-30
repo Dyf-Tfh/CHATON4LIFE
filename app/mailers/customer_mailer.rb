@@ -10,5 +10,4 @@ class CustomerMailer < ApplicationMailer
     @order = order
     mail(to: @user.email, subject: 'Order Confirmation - Chaton4life')
   end
-
 end

@@ -1,2 +1,12 @@
-<h1>Order#new</h1>
-<p>Find me in app/views/order/new.html.erb</p>
+<%= form_for(@order, url: create_order_path, html: {id: :continue}) do |f| %>
+ <% f.submit "Continuer", style: "display: none;" %>
+<% end %>
+
+
+<script type="text/javascript">
+  function formAutoSubmit () {
+  var frm = document.getElementById("continue");
+  frm.submit();
+  }
+  window.onload = formAutoSubmit;
+</script>
