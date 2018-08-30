@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'order/index'
-  get 'order/show'
-  get 'order/new'
-  get 'order/create'
   root 'items#index'
   get 'items/:id/show', to: 'items#show', as: 'item'
   devise_for :users
@@ -16,4 +12,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items
   resources :charges
+  resources :orders 
 end

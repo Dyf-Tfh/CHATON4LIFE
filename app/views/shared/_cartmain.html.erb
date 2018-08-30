@@ -68,22 +68,23 @@
                 </table>
                 <!-- <div class="text-right"><%= link_to "Proceed to checkout", new_charge_path, class: "btn btn-block-mobile btn-black" %></div> -->
                 <div class="text-right">
-                <%= form_tag charges_path do %>
-                    <% if flash[:error].present? %>
-                      <div id="error_explanation">
-                        <p><%= flash[:error] %></p>
-                      </div>
-                    <% end %>
+                  <%= form_tag charges_path do %>
+                      <% if flash[:error].present? %>
+                        <div id="error_explanation">
+                          <p><%= flash[:error] %></p>
+                        </div>
+                      <% end %>
 
-                    <div class="stripe-button-container">
-                      <script class="stripe-button"
-                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                              data-description="A month's subscription"
-                              data-amount="500"
-                              data-locale="auto"></script>
-                      <button class="stripe-button" type="submit" style="visibility: visible;">Passer la commande</button>
-                    </div>
-                <% end %>
+
+                      <div class="stripe-button-container">
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                                data-description="A month's subscription"
+                                data-amount="500"
+                                data-locale="auto"></script>
+                      </div>
+                  <% end %>
+
                 </div>
             </div>
         </div>

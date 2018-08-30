@@ -1,4 +1,4 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
   def index
     @orders = Order.all
   end
@@ -18,6 +18,7 @@ class OrderController < ApplicationController
       session[:cart_id] = nil
     else
       render new
+    end
   end
 
   private

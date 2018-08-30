@@ -1,7 +1,7 @@
 class CustomerMailer < ApplicationMailer
 
-  def contact
-    mail(to: @user.email, subject: 'Your Order')
+  def customer_email(user)
+    mail(to: user, subject: 'Your Order')
   end
 
 end
