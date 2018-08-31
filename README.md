@@ -1,8 +1,11 @@
 <h1>Boutique e-commerce CHATON4LIFE </h1>
 
-lien heroku:
+<h2>Le projet</h2>
 
+Ici on vend des photos de chats parce que les chats, c'est la vie.  
 
+Lien heroku: https://chaton4lifethp.herokuapp.com/  
+Fonctionnel ? Hmmmm....
 
 <h2>Utilisation en local</h2>
 
